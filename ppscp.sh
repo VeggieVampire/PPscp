@@ -8,13 +8,6 @@
 # Initial Release: 1
 
 
-# $0 is the name of the command
-# $1 first parameter
-# $2 second parameter
-# $3 third parameter etc. etc
-# $# total number of parameters
-# $@ all the parameters will be listed
-
 userName=$1
 server=$2
 loc=$3
@@ -22,7 +15,7 @@ filename=$4
 
 
 
-#checks if user entered info
+#checks if user entered any info
 if [ -z "$filename" ]
 then
   echo "Missing filename"
@@ -39,36 +32,23 @@ echo "File not found on localhost"
 exit 1
 fi
 
-
-echo $filename
-
-#md5 string maker
+#creates amd5 hash for local file aka PRE
 md5precheck=$(md5sum $filename|awk '{print $1}')
 
-echo $md5precheck
-
-#scp file
-# scp foobar.txt your_username@remotehost.edu:/some/remote/directory
-
+#copies file over
 scp $filename $userName@$server:$loc/$filename
-#scp $filename osmc@$server:/home/$USER/$filename
 
-#Gets remote md5 of the file
-#md5postcheck= $(ssh -q $USER@$server "md5sum $loc/$filename|awk '{print $1}'")
+#Gets remote md5 hash of the copied file aka POST
 md5postcheck=$(ssh -q $userName@$server "md5sum $loc/$filename"|awk '{print $1}')
-echo $md5postcheck
-
-#192.168.1.135
-#md5 check remote
-
-#
 
 #checks if md5 local is the same as md5 remote
 if [ $md5precheck == $md5postcheck ]
 then
-    echo "md5 pass"
+#Pass
+    echo "MD5 integrity check successful"
 else
-echo $md5postcheck
+#Failed
+echo "MD5 integrity check FAILED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 echo "md5 remote doesn't match local for" $filename
 ssh -q $userName@$server "rm -rf $loc/$filename"
 echo "file" $filename "deleted!"
