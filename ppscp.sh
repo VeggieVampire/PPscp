@@ -20,6 +20,7 @@ then
   echo "Missing file name!!!!!!!!"
   echo "example:" 
   echo "./ppscp.sh RemoteUserName RemoteServerName RemoteLocation LocalFileName"
+  echo "./ppscp.sh ALincoln whitehouse.gov /home/ALincoln/WhiskeyRiver LibraryofCongress.catalog"
   exit 1
 else
   echo $filename "passed"
@@ -30,6 +31,9 @@ if [ -e "$filename" ]; then
 	echo "File exists!"
 else
 	echo "File not found on localhost"
+	echo "example:" 
+  	echo "./ppscp.sh RemoteUserName RemoteServerName RemoteLocation LocalFileName"
+  	echo "./ppscp.sh ALincoln whitehouse.gov /home/ALincoln/WhiskeyRiver LibraryofCongress.catalog"
 	exit 1
 fi
 
