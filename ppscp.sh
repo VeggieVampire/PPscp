@@ -47,9 +47,11 @@ echo "tarring file...."
 filetar=$filename.tgz
 tar -zcvf  $filetar $filename --atime-preserve
 
-#split file  for easier transfer 
-echo "Splitting file for easier transfer by 3.2M"
-split -b 3276800 -d $filetar $filetar.
+#Getting Lines in the file
+FileLineNum=$(wc -l $filename|awk '{print $1}')
+#split file for easier transfer 
+echo "Splitting file for easier transfer by 82 parts"
+split -l $(( $FileLineNum/82 )) -d $filetar $filetar.
 
 #get count - 2 files
 a=$((($(ls -l |grep $filetar|wc -l)) - 2))
