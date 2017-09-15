@@ -12,13 +12,13 @@ git clone https://github.com/VeggieVampire/PPscp <br>
 cd PPscp <br>
 chmod 777 * <br>
 
-mv ./ppscp.sh <LocalLocation>
+mv ./ppscp.sh LocalLOCATION
 
-#Key Setup
-ssh-keygen -t rsa
-cd ~
-ssh $USER@SERVER mkdir -p .ssh
-cat .ssh/id_rsa.pub | ssh $USERE@SERVER 'cat >> .ssh/authorized_keys'
+#Key Setup <br>
+ssh-keygen -t rsa<br>
+cd ~<br>
+ssh $USER@SERVER mkdir -p .ssh<br>
+cat .ssh/id_rsa.pub | ssh $USERE@SERVER 'cat >> .ssh/authorized_keys'<br>
 
 # Run
 After moving ppscp.sh to the folder where your file is located. run command below.
