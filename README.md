@@ -14,7 +14,7 @@ chmod 777 * <br>
 
 mv ./ppscp.sh LocalLOCATION
 
-#Key Setup <br>
+# Key Setup <br>
 ssh-keygen -t rsa<br>
 cd ~<br>
 ssh $USER@SERVER mkdir -p .ssh<br>
