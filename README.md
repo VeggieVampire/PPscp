@@ -21,8 +21,8 @@ ssh $USER@SERVER mkdir -p .ssh<br>
 cat .ssh/id_rsa.pub | ssh $USERE@SERVER 'cat >> .ssh/authorized_keys'<br>
 
 # Run
-After moving ppscp.sh to the folder where your file is located. run command below.
-ppscp.sh RemoteUserName RemoteServerName RemoteLocation LocalFileName
+After moving ppscp.sh to the folder where your file is located. run command below.<br>
+ppscp.sh RemoteUserName RemoteServerName RemoteLocation LocalFileName<br>
 
 
 Do not use SPACES!!!! bug found in the code. 
