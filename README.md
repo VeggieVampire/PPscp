@@ -5,8 +5,24 @@ This is perfect for transferring large files (Gigabytes) on less than stable net
 
 
 
-To use copy the ppscp.sh to the local location of the file you want to transfer. Then use this example below to run the script it will ask for a password if you do not have your SSH keys setup.
+# Install 
+sudo apt-get install -y git <br>
+git clone https://github.com/VeggieVampire/PPscp <br>
 
+cd PPscp <br>
+chmod 777 * <br>
+
+mv ./ppscp.sh <LocalLocation>
+
+#Key Setup
+ssh-keygen -t rsa
+cd ~
+ssh $USER@SERVER mkdir -p .ssh
+cat .ssh/id_rsa.pub | ssh $USERE@SERVER 'cat >> .ssh/authorized_keys'
+
+# Run
+After moving ppscp.sh to the folder where your file is located. run command below.
 ppscp.sh RemoteUserName RemoteServerName RemoteLocation LocalFileName
+
 
 Do not use SPACES!!!! bug found in the code. 
