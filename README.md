@@ -17,8 +17,8 @@ mv ./ppscp.sh LocalLOCATION
 # Key Setup <br>
 ssh-keygen -t rsa<br>
 cd ~<br>
-ssh $USER@SERVER mkdir -p .ssh<br>
-cat .ssh/id_rsa.pub | ssh $USERE@SERVER 'cat >> .ssh/authorized_keys'<br>
+ssh $USER@RemoteServerName mkdir -p .ssh<br>
+cat .ssh/id_rsa.pub | ssh $USERE@RemoteServerName 'cat >> .ssh/authorized_keys'<br>
 
 # Run
 After moving ppscp.sh to the folder where your file is located. run command below.<br>
