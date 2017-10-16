@@ -18,15 +18,6 @@ sed 1d found.media > found.media2
 sed 1d found.media2 > found.media
 
 rm -rf found.media2
-		##sed s/"("/"\("/ < found.media > found.media2
-		##cp found.media2 found.media
-		##sed s/" "/"\ "/ < found.media > found.media2
-		##cp found.media2 found.media
-		##sed s/")"/"\)"/ < found.media > found.media2
-		##cp found.media2 found.media
-
-#cat found.media
-
 IFS=$'\n' 
 
 
@@ -51,7 +42,7 @@ for filename in `cat found.media`
 			fi
 else
 		#File not found on remote server
-		printf "$filename ${RED} NOT FOUND ${NC} on Remote Server\n"
+		printf "$filename ${YELLOW} NOT FOUND ${NC} on Remote Server\n"
 fi
 	
  done
